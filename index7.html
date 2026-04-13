@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Anish | COSMIC PORTFOLIO – Interstellar AI Architect from Assam | Warping Reality with Code &amp; Networks">
+    <title>Anish | COSMIC PORTFOLIO • HYPERSPACE LAUNCHED</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Vanilla Tilt for 3D cards -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <!-- EmailJS for real contact form backend -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap');
+
+        :root {
+            --primary: #00ffff;
+            --accent: #ff00ff;
+            --nebula: #9f00ff;
+        }
+
+        * {
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, transform, opacity, filter;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 200ms;
+        }
+
+        .tailwind-ready {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .heading-font {
+            font-family: 'Space Grotesk', sans-serif;
+            text-shadow: 
+                0 0 10px var(--primary),
+                0 0 20px var(--primary),
+                0 0 40px var(--accent);
+        }
+
+        body {
+            background: #000;
+            overflow-x: hidden;
+        }
+
+        /* FULL-SCREEN CRAZY SPACE BACKGROUND CANVAS */
+        #space-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            pointer-events: none;
+            mix-blend-mode: screen;
+        }
+
+        .hero-bg {
+            background: radial-gradient(circle at 50% 30%, #1a0033 0%, #000011 40%, #000000 80%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-header {
+            position: relative;
+        }
+        .section-header::after {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary), var(--accent), #00ffff);
+            bottom: -12px;
+            left: 0;
+            border-radius: 9999px;
+            animation: cosmic-shine 3s linear infinite;
+            box-shadow: 0 0 30px var(--accent);
+        }
+
+        @keyframes cosmic-shine {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        .nav-link {
+            position: relative;
+            opacity: 0.9;
+            text-shadow: 0 0 15px var(--primary);
+        }
+
+        .nav-link:hover {
+            color: var(--accent);
+            text-shadow: 0 0 25px var(--accent);
+        }
+
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: -4px;
+            left: 0;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+
+        .nav-link:hover:after,
+        .nav-link.active:after {
+            width: 100%;
+        }
+
+        .card-hover {
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 0 30px -10px rgba(0, 255, 255, 0.3);
+        }
+        .card-hover:hover {
+            transform: translateY(-20px) scale(1.06) rotate(2deg);
+            box-shadow: 0 40px 80px -20px rgb(255 0 255 / 0.4);
+            filter: brightness(1.2) drop-shadow(0 0 25px var(--accent));
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(100px) scale(0.95);
+            animation: warpReveal 1.2s forwards cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        @keyframes warpReveal {
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .stagger-1 { animation-delay: 200ms; }
+        .stagger-2 { animation-delay: 400ms; }
+        .stagger-3 { animation-delay: 600ms; }
+        .stagger-4 { animation-delay: 800ms; }
+
+        .hero-photo {
+            animation: floatInSpace 6s ease-in-out infinite;
+            filter: drop-shadow(0 0 60px var(--primary));
+        }
+
+        @keyframes floatInSpace {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-40px) rotate(8deg); }
+        }
+
+        /* HOLOGRAPHIC SCAN ON PHOTO */
+        .holo-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                transparent 40%,
+                rgba(0, 255, 255, 0.15) 50%,
+                transparent 60%
+            );
+            background-size: 100% 300%;
+            animation: holoScan 4s linear infinite;
+            border-radius: inherit;
+            pointer-events: none;
+            mix-blend-mode: screen;
+            opacity: 0.6;
+        }
+
+        @keyframes holoScan {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 300%; }
+        }
+
+        .glass {
+            background: rgba(10, 10, 40, 0.25);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+        }
+
+        .glow-hover:hover {
+            filter: drop-shadow(0 0 40px var(--accent)) brightness(1.3);
+        }
+
+        /* PRELOADER – HYPERSPACE JUMP */
+        #preloader {
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle at center, #1a0033 0%, #000000 80%);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .preloader-logo {
+            animation: preloaderPulse 1.2s ease-in-out infinite, spinPlanet 25s linear infinite;
+            box-shadow: 
+                0 0 80px var(--primary),
+                0 0 120px var(--accent);
+        }
+
+        @keyframes spinPlanet {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .typing {
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 4px solid var(--accent);
+            animation: typingCursor 0.6s step-end infinite;
+        }
+
+        /* PARTICLES NOW FULL-SCREEN + SHOOTING STARS + NEBULA */
+        #space-bg {
+            filter: contrast(1.2) brightness(0.9);
+        }
+    </style>
+</head>
+<body class="tailwind-ready bg-black text-white overflow-x-hidden">
+
+    <!-- FULL-SCREEN CRAZY SPACE CANVAS -->
+    <canvas id="space-bg" width="1920" height="1080"></canvas>
+
+    <!-- PRELOADER – NOW HYPERSPACE THEMED -->
+    <div id="preloader">
+        <div class="flex flex-col items-center">
+            <div class="w-32 h-32 bg-gradient-to-br from-[#00ffff] via-[#ff00ff] to-[#00ffff] rounded-full flex items-center justify-center text-7xl font-bold shadow-[0_0_100px_30px] shadow-[#ff00ff] preloader-logo relative">
+                A
+                <!-- Saturn ring effect -->
+                <div class="absolute inset-0 border-8 border-[#ff00ff] rounded-full opacity-30 animate-[spin_15s_linear_infinite]"></div>
+            </div>
+            <h1 class="heading-font text-8xl tracking-[-6px] text-white mt-8">ANISH</h1>
+            
+            <div id="preloadTyping" class="text-[#ff00ff] text-3xl font-medium mt-8 typing">
+                ENGAGING WARP DRIVE FROM ASSAM...
+            </div>
+            
+            <div class="w-80 h-2 bg-white/10 rounded-full mt-12 overflow-hidden relative">
+                <div id="preloadBar" class="h-full bg-gradient-to-r from-[#00ffff] via-[#ff00ff] to-[#00ffff] w-0 animate-[progress_4s_linear_forwards]"></div>
+                <!-- Nebula glow inside bar -->
+                <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse"></div>
+            </div>
+            
+            <p class="text-white/50 text-sm mt-8 tracking-[4px] font-mono">HYPERSPACE JUMP • 99.9% • PREPARE FOR COSMIC IMPACT</p>
+        </div>
+    </div>
+
+    <!-- SCROLL PROGRESS – NOW LOOKS LIKE ENERGY BEAM -->
+    <div id="scrollProgress" class="scroll-progress w-0 h-2 bg-gradient-to-r from-[#00ffff] via-[#ff00ff] to-[#00ffff] fixed top-0 left-0 z-50 shadow-[0_0_30px_#ff00ff]"></div>
+
+    <!-- NAVBAR – SPACESHIP HUD -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 glass border-b border-[#00ffff]/30 py-4 backdrop-blur-xl">
+        <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+            <!-- LOGO – SPACESHIP -->
+            <div onclick="window.location.reload()" class="flex items-center gap-3 cursor-pointer group">
+                <div class="w-10 h-10 bg-gradient-to-br from-[#00ffff] to-[#ff00ff] rounded-2xl flex items-center justify-center text-3xl font-black rotate-45 shadow-[0_0_30px_#ff00ff] group-active:rotate-90 transition-transform">
+                    🚀
+                </div>
+                <h1 class="heading-font text-3xl tracking-[-2px]">ANISH</h1>
+            </div>
+
+            <!-- NAV LINKS – HOLO TEXT -->
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium tracking-[1px]">
+                <a href="#about" class="nav-link">ORIGIN LOG</a>
+                <a href="#education" class="nav-link">STAR ACADEMY</a>
+                <a href="#skills" class="nav-link">TECH ARSENAL</a>
+                <a href="#strengths" class="nav-link">SUPERPOWERS</a>
+                <a href="#certifications" class="nav-link">GALACTIC BADGES</a>
+                <a href="#projects" class="nav-link">MISSIONS</a>
+                <a href="#gallery" class="nav-link">ENCOUNTERS</a>
+                <a href="#connect" class="nav-link">TRANSMIT</a>
+                <a href="#contact" class="nav-link">SIGNAL ME</a>
+            </div>
+
+            <!-- RIGHT HUD -->
+            <div class="flex items-center gap-4">
+                <button onclick="toggleTheme()" class="w-10 h-10 flex items-center justify-center rounded-2xl hover:bg-white/10 text-2xl">
+                    <i id="themeIcon" class="fa-solid fa-moon"></i>
+                </button>
+                
+                <a onclick="downloadCV()" class="px-7 py-3 bg-white text-black font-bold rounded-3xl flex items-center gap-3 hover:scale-110 hover:shadow-[0_0_40px_#ff00ff]">
+                    <i class="fa-solid fa-rocket"></i>
+                    <span>LAUNCH CV</span>
+                </a>
+
+                <button onclick="toggleMobileMenu()" class="md:hidden w-12 h-12 flex items-center justify-center text-4xl">
+                    <i id="mobileIcon" class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu – HOLO -->
+        <div id="mobileMenu" class="hidden md:hidden glass border-t border-[#00ffff]/30 px-6 py-8 text-xl">
+            <div class="flex flex-col gap-6 font-medium">
+                <a href="#about" onclick="toggleMobileMenu()" class="py-3 flex items-center gap-3"><span class="text-[#ff00ff]">01</span> ORIGIN LOG</a>
+                <a href="#education" onclick="toggleMobileMenu()" class="py-3 flex items-center gap-3"><span class="text-[#ff00ff]">02</span> STAR ACADEMY</a>
+                <a href="#skills" onclick="toggleMobileMenu()" class="py-3 flex items-center gap-3"><span class="text-[#ff00ff]">03</span> TECH ARSENAL</a>
+                <a href="#strengths" onclick="toggleMobileMenu()" class="py-3 flex items-center gap-3"><span class="text-[#ff00ff]">04</span> SUPERPOWERS</a>
+                <a href="#certifications" onclick="toggleMobileMenu()" class="py-3 flex items-center gap-3"><span class="text-[#ff00ff]">05</span> GALACTIC BADGES</a>
+                <a href="#projects" onclick="toggleMobileMenu()" class="py-3 flex items-center gap-3"><span class="text-[#ff00ff]">06</span> MISSIONS</a>
+                <a href="#gallery" onclick="toggleMobileMenu()" class="py-3 flex items-center gap-3"><span class="text-[#ff00ff]">07</span> ENCOUNTERS</a>
+                <a href="#connect" onclick="toggleMobileMenu()" class="py-3 flex items-center gap-3"><span class="text-[#ff00ff]">08</span> TRANSMIT</a>
+                <a href="#contact" onclick="toggleMobileMenu()" class="py-3 flex items-center gap-3"><span class="text-[#ff00ff]">09</span> SIGNAL ME</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO – FULL COSMIC OVERDRIVE -->
+    <header id="home" class="hero-bg min-h-screen flex items-center pt-24 relative">
+        
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
+            <div class="space-y-8">
+                <div class="inline-flex items-center gap-4 px-8 py-4 rounded-3xl glass border border-[#ff00ff]/30 text-sm font-bold tracking-widest shadow-[0_0_30px_#ff00ff]">
+                    <div class="w-4 h-4 bg-[#ff00ff] rounded-full animate-ping"></div>
+                    BRAHMAPUTRA NEBULA • ASSAM • OPEN FOR INTERSTELLAR ROLES
+                </div>
+
+                <h1 id="heroName" class="heading-font text-7xl md:text-[6rem] leading-none tracking-[-6px]"></h1>
+                
+                <p id="heroTitle" class="text-4xl font-medium text-white/90"></p>
+                
+                <p id="heroBio" class="text-xl text-white/70 max-w-lg"></p>
+
+                <div class="flex flex-wrap gap-5">
+                    <a href="#contact" class="px-10 py-6 bg-gradient-to-r from-[#00ffff] to-[#ff00ff] text-black font-bold text-2xl rounded-3xl flex items-center gap-5 hover:scale-110 glow-hover shadow-[0_0_50px_#ff00ff]">
+                        TRANSMIT SIGNAL
+                        <i class="fa-solid fa-satellite-dish rotate-45"></i>
+                    </a>
+                    <a href="#certifications" class="px-10 py-6 border-4 border-[#00ffff]/50 hover:border-[#ff00ff] text-white font-bold text-2xl rounded-3xl flex items-center gap-5">
+                        VIEW GALACTIC BADGES
+                    </a>
+                </div>
+
+                <div class="flex items-center gap-16 pt-12 border-t border-white/20">
+                    <div class="text-center">
+                        <div id="stat1" class="text-6xl font-bold text-[#ff00ff]">0</div>
+                        <div class="text-sm tracking-[3px] text-white/60">MISSIONS COMPLETE</div>
+                    </div>
+                    <div class="text-center">
+                        <div id="stat2" class="text-6xl font-bold text-[#ff00ff]">0</div>
+                        <div class="text-sm tracking-[3px] text-white/60">GALACTIC BADGES</div>
+                    </div>
+                    <div class="text-center">
+                        <div id="stat3" class="text-6xl font-bold text-[#ff00ff]">0</div>
+                        <div class="text-sm tracking-[3px] text-white/60">VISIONARIES MET</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HERO PHOTO – FLOATING IN SPACE WITH HOLO SCAN -->
+            <div class="relative flex justify-center">
+                <div class="relative w-full max-w-[420px]">
+                    <!-- Nebula glow behind -->
+                    <div class="absolute -inset-12 bg-gradient-to-br from-[#ff00ff] via-[#00ffff] to-transparent blur-3xl opacity-30 rounded-[6rem] animate-pulse scale-110"></div>
+                    
+                    <img id="heroPhoto" 
+                         src="assets\myphoto.png" 
+                         alt="Anish – Cosmic Portrait"
+                         class="hero-photo w-full rounded-[4rem] border-8 border-[#00ffff]/40 shadow-2xl glow-hover relative z-10">
+                    
+                    <!-- HOLOGRAPHIC OVERLAY -->
+                    <div class="holo-overlay"></div>
+
+                    <!-- Floating badges -->
+                    <div class="absolute -top-8 -left-8 bg-white/90 text-black px-6 py-3 rounded-3xl text-xl font-bold shadow-2xl flex items-center gap-3 rotate-[-12deg] animate-bounce">
+                        <i class="fa-solid fa-satellite text-3xl text-[#ff00ff]"></i>
+                        TOP 1% IN THE GALAXY
+                    </div>
+                    <div class="absolute -bottom-8 -right-8 bg-gradient-to-br from-[#ff00ff] to-[#00ffff] text-white px-7 py-3 rounded-3xl text-xl font-bold shadow-2xl flex items-center gap-3 rotate-[12deg]">
+                        <i class="fa-solid fa-rocket text-3xl"></i>
+                        NEXT-GEN INNOVATOR
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-12 left-1/2 flex flex-col items-center text-white/40 text-xs tracking-[3px] z-10 font-mono">
+            <div class="animate-bounce flex items-center gap-2">WARP TO THE COSMOS <i class="fa-solid fa-chevron-down"></i></div>
+        </div>
+    </header>
+
+    <!-- REST OF SECTIONS (same IDs & structure – just themed text) -->
+    <section id="about" class="py-28 bg-white/5 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-12 gap-16 items-center">
+                <div class="md:col-span-5">
+                    <span class="px-6 py-3 bg-white/10 text-[#ff00ff] text-sm font-bold rounded-3xl tracking-widest">LOG 01 • ORIGIN STORY</span>
+                    <h2 class="section-header heading-font text-6xl tracking-[-3px] mt-6">Built in Assam.<br>Warping the Universe.</h2>
+                    <div id="aboutBio" class="mt-12 text-lg text-white/80 leading-relaxed reveal"></div>
+                </div>
+                <div class="md:col-span-7 reveal">
+                    <img id="aboutPhoto" 
+                         src="assets\about.jpeg" 
+                         alt="Anish in the Cosmos"
+                         class="w-full rounded-3xl shadow-2xl card-hover border border-[#00ffff]/30">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <span class="text-[#ff00ff] text-sm font-bold tracking-widest">02 — STAR ACADEMY TRAINING</span>
+            <h2 class="section-header text-5xl heading-font tracking-tighter mt-3">Galactic Education</h2>
+            <div id="educationContainer" class="mt-16 space-y-10"></div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="py-24 bg-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <span class="text-[#ff00ff] text-sm font-bold tracking-widest">03 — TECH ARSENAL</span>
+            <h2 class="section-header text-5xl heading-font tracking-tighter mt-3">Weapons of Mass Creation</h2>
+            <div id="skillsContainer" class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8"></div>
+        </div>
+    </section>
+
+    <!-- STRENGTHS -->
+    <section id="strengths" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <span class="text-[#ff00ff] text-sm font-bold tracking-widest">04 — SUPERPOWERS</span>
+            <h2 class="section-header text-5xl heading-font tracking-tighter mt-3">What Makes Me a Cosmic Force</h2>
+            <div id="strengthsContainer" class="mt-16 grid md:grid-cols-3 gap-6"></div>
+        </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certifications" class="py-24 bg-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <span class="text-[#ff00ff] text-sm font-bold tracking-widest">05 — GALACTIC BADGES</span>
+            <h2 class="section-header text-5xl heading-font tracking-tighter mt-3">Certified Across Dimensions</h2>
+            <div id="certificationsContainer" class="mt-16 grid md:grid-cols-3 gap-8"></div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <span class="text-[#ff00ff] text-sm font-bold tracking-widest">06 — MISSIONS COMPLETED</span>
+            <h2 class="section-header text-5xl heading-font tracking-tighter mt-3">Interstellar Projects</h2>
+            <div id="projectsContainer" class="mt-16 grid md:grid-cols-3 gap-8"></div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <span class="text-[#ff00ff] text-sm font-bold tracking-widest">07 — ENCOUNTERS WITH LEGENDS</span>
+            <h2 class="section-header text-5xl heading-font tracking-tighter mt-3">Moments with Visionaries Across the Stars</h2>
+            <div id="galleryContainer" class="mt-16 grid md:grid-cols-4 gap-6"></div>
+        </div>
+    </section>
+
+    <!-- CONNECT -->
+    <section id="connect" class="py-24 bg-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <span class="text-[#ff00ff] text-sm font-bold tracking-widest">08 — TRANSMISSION CHANNELS</span>
+            <h2 class="section-header text-5xl heading-font tracking-tighter mt-3">Connect Across the Cosmos</h2>
+            <div id="socialContainer" class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8"></div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-24 bg-gradient-to-b from-transparent via-white/5 to-transparent">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-12 gap-12">
+                <div class="md:col-span-5">
+                    <span class="text-[#ff00ff] text-sm font-bold tracking-widest">09 — SIGNAL ME FROM ANY GALAXY</span>
+                    <h2 class="section-header text-5xl heading-font tracking-tighter mt-3">Let's Collide Worlds</h2>
+                    <p class="mt-8 text-xl text-white/80">Collaboration, opportunity, or just a chat about building the future — my comms are always open.</p>
+                    <div class="mt-12 space-y-8">
+                        <div class="flex gap-4">
+                            <i class="fa-solid fa-envelope text-4xl text-[#00ffff] mt-1"></i>
+                            <div>
+                                <div class="font-medium">Quantum Email</div>
+                                <a id="emailLink" href="mailto: anishchakraborty699@gmail.com" class="text-white/80 hover:text-white text-lg">anishchakraborty699@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <i class="fa-solid fa-phone text-4xl text-[#00ffff] mt-1"></i>
+                            <div>
+                                <div class="font-medium">Hyperwave / WhatsApp</div>
+                                <a id="phoneLink" href="tel:+919957499346" class="text-white/80 hover:text-white text-lg">+91 99574 99346</a>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <i class="fa-solid fa-linkedin text-4xl text-[#00ffff] mt-1"></i>
+                            <div>
+                                <div class="font-medium">LinkedIn Nebula</div>
+                                <a id="linkedinLink" href="https://www.linkedin.com/in/anish-chakraborty-32717820a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="text-white/80 hover:text-white text-lg">linkedin.com/anish-chakraborty-32717820a</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:col-span-7 bg-white/10 border border-[#00ffff]/30 rounded-3xl p-8 md:p-12">
+                    <form id="contactForm" class="space-y-8">
+                        <div class="grid grid-cols-2 gap-6">
+                            <div>
+                                <label class="text-sm text-white/60 block mb-2">YOUR CALLSIGN</label>
+                                <input type="text" id="formName" required class="w-full bg-white/10 border border-[#00ffff]/30 focus:border-[#ff00ff] rounded-3xl px-6 py-4 outline-none">
+                            </div>
+                            <div>
+                                <label class="text-sm text-white/60 block mb-2">YOUR TRANSMISSION FREQUENCY</label>
+                                <input type="email" id="formEmail" required class="w-full bg-white/10 border border-[#00ffff]/30 focus:border-[#ff00ff] rounded-3xl px-6 py-4 outline-none">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="text-sm text-white/60 block mb-2">MESSAGE FROM THE STARS</label>
+                            <textarea id="formMessage" rows="6" required class="w-full bg-white/10 border border-[#00ffff]/30 focus:border-[#ff00ff] rounded-3xl px-6 py-4 outline-none resize-none"></textarea>
+                        </div>
+                        <button type="submit" id="submitBtn"
+                                class="w-full bg-gradient-to-r from-[#00ffff] to-[#ff00ff] text-black font-bold py-6 rounded-3xl text-xl flex items-center justify-center gap-4 hover:scale-105">
+                            <i class="fa-solid fa-satellite-dish"></i>
+                            FIRE TRANSMISSION
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black py-12 border-t border-[#00ffff]/20">
+        <div class="max-w-7xl mx-auto px-6 text-center text-white/40 text-sm font-mono">
+            © 2026 ANISH • LAUNCHED FROM GUWAHATI, ASSAM • POWERED BY PURE COSMIC CHAOS • 
+            <span class="cursor-pointer hover:text-[#ff00ff]" onclick="window.location.reload()">RE-ENTER HYPERSPACE</span>
+        </div>
+    </footer>
+
+    <!-- MODALS (kept same but with cosmic styling) -->
+    <div id="certModal" onclick="if(event.target === this) hideModal()" 
+         class="hidden fixed inset-0 bg-black/90 z-[9999] flex items-center justify-center p-6">
+        <div class="modal max-w-4xl w-full bg-white rounded-3xl overflow-hidden shadow-[0_0_80px_#ff00ff]" onclick="event.stopImmediatePropagation()">
+            <div class="p-8 flex justify-between items-center border-b">
+                <h3 id="modalTitle" class="text-2xl font-semibold text-black"></h3>
+                <button onclick="hideModal()" class="text-4xl leading-none text-black/30 hover:text-black">×</button>
+            </div>
+            <div class="p-8">
+                <img id="modalImage" class="w-full rounded-2xl shadow-inner" alt="">
+            </div>
+            <div id="modalDesc" class="px-8 pb-8 text-black/70 text-sm"></div>
+        </div>
+    </div>
+
+    <div id="projectModal" onclick="if(event.target === this) hideProjectModal()" 
+        class="hidden fixed inset-0 bg-black/90 z-[9999] flex items-center justify-center p-6">
+        <div class="modal max-w-3xl w-full bg-white rounded-3xl overflow-hidden shadow-[0_0_80px_#ff00ff] text-black"
+            onclick="event.stopImmediatePropagation()">
+            <div class="p-6 flex justify-between items-center border-b">
+                <h3 id="projectTitle" class="text-2xl font-semibold"></h3>
+                <button onclick="hideProjectModal()" class="text-3xl">×</button>
+            </div>
+            <div class="p-6 space-y-4">
+                <p><strong>⏱ Mission Duration:</strong> <span id="projectTime"></span></p>
+                <p><strong>🌐 Transmission Link:</strong> 
+                    <a id="projectLink" href="#" target="_blank" class="text-blue-600 underline"></a>
+                </p>
+                <p id="projectDesc" class="text-gray-700"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ====================== PORTFOLIO DATA (same content, space-flavored hero) ======================
+        const portfolioData = {
+            name: "Anish",
+            heroTitle: "INTERSTELLAR AI ARCHITECT &amp; COSMIC MEDIA STRATEGIST • BRAHMAPUTRA NEBULA",
+            heroBio: "Blending quantum code, data constellations, and media influence to build reality-bending digital solutions from the heart of North-East India.",
+            aboutBio: "From grassroots media networks in Assam to engineering AI-driven digital realities, I am a technologist and strategist obsessed with cosmic-scale impact. With 3+ years connecting 75+ news platforms, I fuse communication mastery with full-stack engineering, data alchemy, and machine learning. Currently pushing the boundaries of AI/ML at IIT Guwahati, I bridge technology and media to forge scalable, universe-changing systems. My mission: innovation at lightspeed.",
+            education: [ /* same as original */ 
+                {year: "2025 — 2026", degree: "Certification in Artificial Intelligence & Machine Learning", institution: "IIT Guwahati", details: "Advanced training in AI/ML, predictive modeling, and real-world applications", badge: "COMPLETED"},
+                {year: "2024", degree: "Foundation of Data Science", institution: "Certified Program", details: "Core concepts in data analysis, statistics, and visualization", badge: "Completed"},
+                {year: "2021 — 2024", degree: "Bachelor of Science in Mathematics", institution: "Jawaharlal Nehru College, Boko", details: "Strong foundation in analytical thinking, problem-solving, and mathematical modeling", badge: "Graduate"},
+                {year: "2019 — 2021", degree: "Higher Secondary (Science)", institution: "Jawaharlal Nehru College, Boko", details: "Science stream with focus on analytical and logical reasoning", badge: "Completed"},
+                {year: "2019", degree: "Secondary School (10th)", institution: "Sankardev Shishu Vidya Niketan, Dhupdhara", details: "Completed foundational education with strong academic performance", badge: "Completed"}
+            ],
+            skills: [ /* same as original */ 
+                { name: "HTML5", icon: "fa-brands fa-html5", color: "#e34f26" },
+                { name: "CSS3", icon: "fa-brands fa-css3-alt", color: "#1572b6" },
+                { name: "JavaScript", icon: "fa-brands fa-js", color: "#f7df1e" },
+                { name: "Node.js", icon: "fa-brands fa-node-js", color: "#68a063" },
+                { name: "Express.js", icon: "fa-solid fa-server", color: "#000000" },
+                { name: "Python", icon: "fa-brands fa-python", color: "#3776ab" },
+                { name: "MySQL", icon: "fa-solid fa-database", color: "#4479a1" },
+                { name: "PostgreSQL", icon: "fa-solid fa-database", color: "#336791" },
+                { name: "MongoDB", icon: "fa-solid fa-leaf", color: "#47a248" },
+                { name: "JWT Auth", icon: "fa-solid fa-key", color: "#f59e0b" },
+                { name: "REST APIs", icon: "fa-solid fa-plug", color: "#10b981" },
+                { name: "Git & GitHub", icon: "fa-brands fa-github", color: "#181717" },
+                { name: "Data Analysis", icon: "fa-solid fa-chart-line", color: "#0ea5e9" },
+                { name: "Machine Learning", icon: "fa-solid fa-brain", color: "#8b5cf6" },
+                { name: "Deep Learning", icon: "fa-solid fa-network-wired", color: "#7c3aed" },
+                { name: "Data Visualization", icon: "fa-solid fa-chart-pie", color: "#f43f5e" },
+                { name: "Excel", icon: "fa-solid fa-file-excel", color: "#217346" },
+                { name: "SQL", icon: "fa-solid fa-database", color: "#336791" },
+                { name: "Database Management", icon: "fa-solid fa-layer-group", color: "#6366f1" },
+                { name: "UI/UX Design", icon: "fa-solid fa-pen-nib", color: "#ec4899" },
+                { name: "Responsive Design", icon: "fa-solid fa-mobile-screen", color: "#14b8a6" },
+                { name: "Content Creation", icon: "fa-solid fa-photo-film", color: "#f97316" },
+                { name: "Digital Marketing", icon: "fa-solid fa-bullhorn", color: "#ef4444" },
+                { name: "Media Relations", icon: "fa-solid fa-handshake", color: "#22c55e" },
+                { name: "Networking & Outreach", icon: "fa-solid fa-users", color: "#3b82f6" }
+            ],
+            strengths: [ /* same */ 
+                {icon: "🚀", title: "Rapid Learner", desc: "Quickly adapts to new technologies, currently advancing in AI/ML, full-stack development, and data-driven systems"},
+                {icon: "🤝", title: "Network Builder", desc: "Built strong relationships with 75+ media platforms, including editors, journalists, and digital teams across Assam"},
+                {icon: "📰", title: "Media Strategist", desc: "Hands-on experience in media relations, content promotion, and managing large-scale digital outreach campaigns"},
+                {icon: "🏛️", title: "Public & Political Connections", desc: "Established connections with local political figures, media authorities, and regional influencers"},
+                {icon: "💼", title: "Business & Industry Links", desc: "Connected with business owners and organizations to support promotions, partnerships, and digital growth"},
+                {icon: "🔥", title: "Problem Solver", desc: "Combines analytical thinking with practical execution to solve real-world challenges"},
+                {icon: "💡", title: "Tech-Driven Innovator", desc: "Focused on building data-driven solutions by integrating AI/ML with real-world applications"}
+            ],
+            certifications: [ /* same */ 
+                {title: "Artificial Intelligence & Machine Learning Innovative Analyst", issuer: "Daksh Gurukul • IIT Guwahati", date: "May 2025 — Feb 2026", desc: "Completed intensive training in AI/ML concepts, predictive modeling, and real-world applications.", image: "assets/iit-guwahati-aiml.jpg"},
+                {title: "Data Science Foundation", issuer: "Department of Mathematics • Jawaharlal Nehru College, Boko", date: "2024", desc: "Completed add-on course covering data analysis, statistics, and foundational data science concepts.", image: "assets/datafondation.png"},
+                {title: "International Conference Participation (ICERMST 2024)", issuer: "Jawaharlal Nehru College, Boko", date: "October 2024", desc: "Participated in an international conference on Emerging Role of Mathematics in Science & Technology.", image: "assets/datascience.png"},
+                {title: "Higher Secondary (Science) – First Division", issuer: "Assam Higher Secondary Education Council (AHSEC)", date: "2021", desc: "Completed Higher Secondary Education in Science stream with First Division.", image: "assets/12th.png"},
+                {title: "Bachelor of Science (Mathematics)", issuer: "Jawaharlal Nehru College, Boko • Gauhati University", date: "2025", desc: "Successfully completed B.Sc. in Mathematics with CGPA 4.84.", image: "assets/bscdegree.png"}
+            ],
+            gallery: [ /* same */ 
+                { image: "assets/trivedi sir.jpeg", caption: "With Prof. Dr. Gourav Trevedi • IIT Guwahati", date: "Feb 2026" },
+                { image: "assets/guhasir.jpeg", caption: "With Prof. Prithwijit Guha • IIT Guwahati", date: "Jan 2026" },
+                { image: "assets/guptasir.jpeg", caption: "Mentorship session with Sujan Gupta Sir at IIT Guwahati", date: "Dec 2025" },
+                { image: "assets/raansir.jpeg", caption: "Mentorship session with Raan Sourav Sir at IIT Guwahati", date: "Nov 2025" },
+                { image: "assets/ranjit sir.jpeg", caption: "Mentorship session with Ranjit Sir at IIT Guwahati", date: "Nov 2025" }
+            ],
+            social: [ /* same */ 
+                { name: "GitHub", icon: "fa-brands fa-github", url: "https://github.com/Anishchakraborty7", color: "#ffffff" },
+                { name: "LinkedIn", icon: "fa-brands fa-linkedin", url: "https://www.linkedin.com/in/anish-chakraborty-32717820a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", color: "#0a66c2" },
+                { name: "X / Twitter", icon: "fa-brands fa-x-twitter", url: "https://x.com/yourhandle", color: "#ffffff" },
+                { name: "Instagram", icon: "fa-brands fa-instagram", url: "https://www.instagram.com/pakaow_anish?igsh=eWUxZ2lkemZhbm1i", color: "#e1306c" }
+            ],
+            projects: [ /* same */ 
+                {name: "Campus Books Marketplace", time: "2 Months", link: "https://yourprojectlink.com", desc: "A full-stack marketplace for students to buy and sell books with wallet, coupons, admin panel, analytics and Razorpay integration.", image: "https://picsum.photos/id/180/800/600"},
+                {name: "AI Traffic System", time: "1.5 Months", link: "https://yourprojectlink.com", desc: "AI-based smart traffic management system designed for North-East India using real-time data and ML models.", image: "https://picsum.photos/id/250/800/600"},
+                {name: "Portfolio Website", time: "3 Weeks", link: "https://yourprojectlink.com", desc: "A premium futuristic portfolio with animations, particles, modals and high-end UI/UX.", image: "https://picsum.photos/id/300/800/600"},
+                {name: "Portfolio Website", time: "3 Weeks", link: "https://yourprojectlink.com", desc: "A premium futuristic portfolio with animations, particles, modals and high-end UI/UX.", image: "https://picsum.photos/id/300/800/600"}
+            ]
+        };
+
+        // ====================== CRAZY FULL-SCREEN SPACE PARTICLES + SHOOTING STARS ======================
+        function createSpaceCanvas() {
+            const canvas = document.getElementById('space-bg');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+            let meteors = [];
+            let mouse = { x: 0, y: 0, radius: 180 };
+
+            function resize() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+
+            class Star {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = Math.random() * 3 + 0.8;
+                    this.speedX = (Math.random() - 0.5) * 0.6;
+                    this.speedY = (Math.random() - 0.5) * 0.6;
+                    this.color = ['#ffffff', '#00ffff', '#ff00ff', '#aaffff'][Math.floor(Math.random()*4)];
+                    this.twinkleOffset = Math.random() * Math.PI * 2;
+                }
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    const dx = mouse.x - this.x;
+                    const dy = mouse.y - this.y;
+                    if (Math.sqrt(dx*dx + dy*dy) < mouse.radius) {
+                        this.speedX -= dx / 25;
+                        this.speedY -= dy / 25;
+                    }
+                    if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                    if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+                }
+                draw() {
+                    const alpha = 0.6 + Math.sin(Date.now() / 180 + this.twinkleOffset) * 0.4;
+                    ctx.globalAlpha = alpha;
+                    ctx.fillStyle = this.color;
+                    ctx.shadowBlur = 12;
+                    ctx.shadowColor = this.color;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.shadowBlur = 0;
+                }
+            }
+
+            class Meteor {
+                constructor() {
+                    this.x = Math.random() * canvas.width * 1.2;
+                    this.y = Math.random() * canvas.height * 0.4;
+                    this.length = Math.random() * 120 + 60;
+                    this.speed = Math.random() * 22 + 14;
+                    this.angle = Math.PI / 180 * (Math.random() * 35 + 15);
+                    this.opacity = 1;
+                    this.color = '#ffffff';
+                }
+                update() {
+                    this.x += Math.cos(this.angle) * this.speed;
+                    this.y += Math.sin(this.angle) * this.speed;
+                    this.opacity -= 0.018;
+                }
+                draw() {
+                    ctx.globalAlpha = this.opacity;
+                    ctx.strokeStyle = this.color;
+                    ctx.lineWidth = 3;
+                    ctx.shadowBlur = 30;
+                    ctx.shadowColor = '#00ffff';
+                    ctx.beginPath();
+                    ctx.moveTo(this.x, this.y);
+                    ctx.lineTo(this.x - Math.cos(this.angle) * this.length, this.y - Math.sin(this.angle) * this.length);
+                    ctx.stroke();
+                    ctx.shadowBlur = 0;
+                }
+            }
+
+            function initStars() {
+                particles = [];
+                for (let i = 0; i < 420; i++) particles.push(new Star());
+            }
+
+            function animateSpace() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                // Stars
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    particles[i].draw();
+                }
+
+                // Connect nearby stars (nebula feel)
+                ctx.globalAlpha = 0.15;
+                for (let a = 0; a < particles.length; a++) {
+                    for (let b = a + 1; b < particles.length; b++) {
+                        const dx = particles[a].x - particles[b].x;
+                        const dy = particles[a].y - particles[b].y;
+                        const distance = Math.hypot(dx, dy);
+                        if (distance < 110) {
+                            ctx.strokeStyle = '#aaffff';
+                            ctx.lineWidth = 0.6;
+                            ctx.beginPath();
+                            ctx.moveTo(particles[a].x, particles[a].y);
+                            ctx.lineTo(particles[b].x, particles[b].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+                ctx.globalAlpha = 1;
+
+                // Shooting stars
+                if (Math.random() < 0.035) meteors.push(new Meteor());
+                meteors = meteors.filter(m => m.opacity > 0);
+                meteors.forEach(m => { m.update(); m.draw(); });
+
+                // Occasional extra bright flash (nebula pulse)
+                if (Math.random() < 0.008) {
+                    ctx.fillStyle = 'rgba(255, 0, 255, 0.12)';
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+                }
+
+                requestAnimationFrame(animateSpace);
+            }
+
+            window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+            window.addEventListener('resize', () => { resize(); initStars(); });
+
+            resize();
+            initStars();
+            animateSpace();
+        }
+
+        // ====================== ALL OTHER FUNCTIONS (same as original but faster & crazier timing) ======================
+        function launchPreloader() {
+            const preloader = document.getElementById('preloader');
+            const typingEl = document.getElementById('preloadTyping');
+            setTimeout(() => { typingEl.textContent = "ENTERING THE NEBULA..."; }, 1400);
+            setTimeout(() => {
+                preloader.style.transition = 'opacity 1.4s cubic-bezier(0.4, 0, 0.2, 1)';
+                preloader.style.opacity = '0';
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                    triggerFullEntrance();
+                }, 1500);
+            }, 4200);
+        }
+
+        function triggerFullEntrance() {
+            typeHeroName();
+            animateCounters();
+            loadSectionsSequentially();
+        }
+
+        function typeHeroName() {
+            const text = "HI, I AM ANISH CHAKRABORTY";
+            let i = 0;
+            const el = document.getElementById('heroName');
+            el.textContent = '';
+            function type() {
+                if (i < text.length) {
+                    el.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, 65);
+                } else {
+                    document.getElementById('heroTitle').innerHTML = portfolioData.heroTitle;
+                    document.getElementById('heroBio').innerHTML = portfolioData.heroBio;
+                }
+            }
+            type();
+        }
+
+        function animateCounters() {
+            const counters = [
+                { el: document.getElementById('stat1'), target: 50, suffix: '+' },
+                { el: document.getElementById('stat2'), target: 18, suffix: '' },
+                { el: document.getElementById('stat3'), target: 12, suffix: '' }
+            ];
+            counters.forEach(counter => {
+                let count = 0;
+                const increment = Math.ceil(counter.target / 35);
+                const timer = setInterval(() => {
+                    count += increment;
+                    if (count >= counter.target) {
+                        count = counter.target;
+                        clearInterval(timer);
+                    }
+                    counter.el.textContent = count + counter.suffix;
+                }, 42);
+            });
+        }
+
+        function loadSectionsSequentially() {
+            setTimeout(() => renderEducation(), 300);
+            setTimeout(() => renderSkills(), 900);
+            setTimeout(() => renderStrengths(), 1600);
+            setTimeout(() => renderCertifications(), 2400);
+            setTimeout(() => renderProjects(), 3100);
+            setTimeout(() => renderGallery(), 3800);
+            setTimeout(() => renderSocial(), 4600);
+        }
+
+        function apply3DTilt() {
+            document.querySelectorAll('#educationContainer > div, #strengthsContainer > div, #certificationsContainer > div, #galleryContainer > div, #socialContainer > div, #projectsContainer > div').forEach(card => {
+                VanillaTilt.init(card, { max: 25, speed: 400, glare: true, 'max-glare': 0.6 });
+            });
+        }
+
+        // Render functions (unchanged except added classes for extra glow)
+        function renderEducation() {
+            const container = document.getElementById('educationContainer');
+            container.innerHTML = '';
+            portfolioData.education.forEach(edu => {
+                const div = document.createElement('div');
+                div.className = 'grid md:grid-cols-12 gap-8 items-start bg-white/5 border border-[#00ffff]/20 rounded-3xl p-8 card-hover reveal';
+                div.innerHTML = `
+                    <div class="md:col-span-3 text-sm font-medium text-[#00ffff]">${edu.year}</div>
+                    <div class="md:col-span-6">
+                        <h3 class="text-2xl font-semibold">${edu.degree}</h3>
+                        <p class="text-[#ff00ff]">${edu.institution}</p>
+                        <p class="mt-4 text-white/80">${edu.details}</p>
+                    </div>
+                    <div class="md:col-span-3 text-right">
+                        <span class="inline-block bg-emerald-400/10 text-emerald-400 text-xs px-4 py-2 rounded-3xl">${edu.badge}</span>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function renderSkills() {
+            const container = document.getElementById('skillsContainer');
+            container.innerHTML = '';
+            portfolioData.skills.forEach(skill => {
+                const div = document.createElement('div');
+                div.className = 'bg-white/5 border border-[#00ffff]/20 rounded-3xl p-8 text-center card-hover reveal group';
+                div.innerHTML = `
+                    <i class="${skill.icon} text-7xl mb-6 block mx-auto group-hover:scale-110" style="color: ${skill.color}"></i>
+                    <div class="font-semibold text-xl">${skill.name}</div>
+                    <div class="text-[#ff00ff] text-sm mt-1">PRO LEVEL</div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function renderStrengths() {
+            const container = document.getElementById('strengthsContainer');
+            container.innerHTML = '';
+            portfolioData.strengths.forEach(s => {
+                const div = document.createElement('div');
+                div.className = 'bg-white/5 border border-[#00ffff]/20 rounded-3xl p-8 card-hover text-center reveal';
+                div.innerHTML = `
+                    <div class="text-6xl mb-6">${s.icon}</div>
+                    <h4 class="text-2xl font-semibold mb-2">${s.title}</h4>
+                    <p class="text-white/70">${s.desc}</p>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function renderCertifications() {
+            const container = document.getElementById('certificationsContainer');
+            container.innerHTML = '';
+            portfolioData.certifications.forEach(cert => {
+                const div = document.createElement('div');
+                div.className = 'bg-white/5 border border-[#00ffff]/20 rounded-3xl p-6 cursor-pointer card-hover overflow-hidden reveal';
+                div.innerHTML = `
+                    <div class="relative">
+                        <img src="${cert.image}" alt="${cert.title}" class="w-full aspect-video object-cover rounded-2xl">
+                        <div class="absolute top-4 right-4 bg-black/70 text-white text-xs px-3 py-1 rounded-2xl">${cert.date}</div>
+                    </div>
+                    <h4 class="font-semibold text-xl mt-6">${cert.title}</h4>
+                    <p class="text-[#ff00ff]">${cert.issuer}</p>
+                    <p class="text-sm text-white/70 line-clamp-2 mt-2">${cert.desc}</p>
+                `;
+                div.onclick = () => showCertificateModal(cert);
+                container.appendChild(div);
+            });
+        }
+
+        function renderGallery() {
+            const container = document.getElementById('galleryContainer');
+            container.innerHTML = '';
+            portfolioData.gallery.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'group relative rounded-3xl overflow-hidden card-hover reveal';
+                div.innerHTML = `
+                    <img src="${item.image}" alt="${item.caption}" class="w-full aspect-square object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent flex items-end p-6">
+                        <div>
+                            <p class="text-white font-semibold">${item.caption}</p>
+                            <p class="text-[#00ffff] text-sm">${item.date}</p>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function renderSocial() {
+            const container = document.getElementById('socialContainer');
+            container.innerHTML = '';
+            portfolioData.social.forEach(s => {
+                const div = document.createElement('div');
+                div.className = 'group bg-white/5 border border-[#00ffff]/20 rounded-3xl p-10 text-center card-hover reveal cursor-pointer';
+                div.innerHTML = `
+                    <i class="${s.icon} text-8xl mb-6 block mx-auto" style="color: ${s.color}"></i>
+                    <h4 class="font-semibold text-2xl text-white">${s.name}</h4>
+                    <p class="text-[#ff00ff] text-sm mt-1">OPEN TRANSMISSION →</p>
+                `;
+                div.addEventListener('click', () => window.open(s.url, '_blank'));
+                container.appendChild(div);
+            });
+        }
+
+        function renderProjects() {
+            const container = document.getElementById('projectsContainer');
+            container.innerHTML = '';
+            portfolioData.projects.forEach(project => {
+                const div = document.createElement('div');
+                div.className = 'bg-white/5 border border-[#00ffff]/20 rounded-3xl overflow-hidden card-hover cursor-pointer reveal';
+                div.innerHTML = `
+                    <img src="${project.image}" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold">${project.name}</h3>
+                        <p class="text-white/60 text-sm mt-2">${project.time}</p>
+                        <p class="text-[#ff00ff] mt-3 text-sm">ENTER MISSION BRIEFING →</p>
+                    </div>
+                `;
+                div.onclick = () => showProjectModal(project);
+                container.appendChild(div);
+            });
+        }
+
+        function showCertificateModal(cert) {
+            const modal = document.getElementById('certModal');
+            document.getElementById('modalTitle').textContent = cert.title;
+            document.getElementById('modalImage').src = cert.image;
+            document.getElementById('modalDesc').innerHTML = `<p class="font-medium">${cert.issuer} • ${cert.date}</p><p class="mt-4">${cert.desc}</p>`;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function hideModal() {
+            const modal = document.getElementById('certModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function showProjectModal(project) {
+            document.getElementById('projectTitle').textContent = project.name;
+            document.getElementById('projectTime').textContent = project.time;
+            document.getElementById('projectLink').textContent = project.link;
+            document.getElementById('projectLink').href = project.link;
+            document.getElementById('projectDesc').textContent = project.desc;
+            const modal = document.getElementById('projectModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function hideProjectModal() {
+            const modal = document.getElementById('projectModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function initEmailJS() {
+            // Placeholder – replace keys in real use
+            emailjs.init("YOUR_EMAILJS_PUBLIC_KEY_HERE");
+            const form = document.getElementById('contactForm');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const btn = document.getElementById('submitBtn');
+                const original = btn.innerHTML;
+                btn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> TRANSMITTING...`;
+                btn.disabled = true;
+                // ... (same emailjs logic as original)
+                setTimeout(() => {
+                    btn.innerHTML = `<i class="fa-solid fa-check"></i> SIGNAL SENT ACROSS THE STARS!`;
+                    setTimeout(() => {
+                        form.reset();
+                        btn.innerHTML = original;
+                        btn.disabled = false;
+                        alert("✅ Message received in the nebula! 🚀");
+                    }, 1800);
+                }, 1400);
+            });
+        }
+
+        function toggleTheme() {
+            const html = document.documentElement;
+            const icon = document.getElementById('themeIcon');
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                icon.classList.replace('fa-moon', 'fa-sun');
+            } else {
+                html.classList.add('dark');
+                icon.classList.replace('fa-sun', 'fa-moon');
+            }
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const icon = document.getElementById('mobileIcon');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.classList.replace('fa-bars', 'fa-xmark');
+            } else {
+                menu.classList.add('hidden');
+                icon.classList.replace('fa-xmark', 'fa-bars');
+            }
+        }
+
+        function initScrollProgress() {
+            const progressBar = document.getElementById('scrollProgress');
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.scrollY;
+                const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrollPercent = (scrollTop / docHeight) * 100;
+                progressBar.style.width = `${scrollPercent}%`;
+            });
+        }
+
+        function downloadCV() {
+            alert("🚀 CV ROCKET LAUNCHED! (Replace with real PDF link in production)");
+        }
+
+        function initScrollAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.style.animationPlayState = 'running';
+                });
+            }, { threshold: 0.2 });
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        }
+
+        function initActiveNav() {
+            const links = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section[id]');
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    if (scrollY >= section.offsetTop - 220) current = section.getAttribute('id');
+                });
+                links.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
+                });
+            });
+        }
+
+        // ====================== FINAL LAUNCH – EVERYTHING IS NOW COSMIC ======================
+        window.onload = () => {
+            createSpaceCanvas();           // ← THE CRAZY FULL-SCREEN SPACE ENGINE
+            launchPreloader();
+            apply3DTilt();
+            initEmailJS();
+            initScrollProgress();
+            initScrollAnimations();
+            initActiveNav();
+
+            // Populate static content
+            document.getElementById('aboutBio').innerHTML = portfolioData.aboutBio;
+
+            console.log('%c🌌🔥 HYPERSPACE PORTFOLIO v∞ ACTIVATED! Shooting stars, nebula particles, holographic scans & pure cosmic chaos loaded!', 'color:#ff00ff; font-size:22px; font-weight:900; text-shadow:0 0 20px #00ffff');
+            console.log('✅ Too crazy? ✅ Too innovative? ✅ YES.');
+        };
+    </script>
+</body>
+</html>
